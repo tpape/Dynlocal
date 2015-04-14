@@ -34,15 +34,15 @@ The frontend will be implemented in AngularJs. Communications between the both e
 
 In order to take leverage of SSL/TLS certificate to build a browser friendly website the application will be hosted by a cloud platform.
 This is the list of the cloud platform that supports Django:
-	-Heroku
-	-Amazon EC2
-	-Google App Engine
-	-Linode
-	-OpenShift
-	-dotCloud
-	-Jelastic
-	-nitrous.io
-	-pythonanywhere
+- Heroku
+- Amazon EC2
+- Google App Engine
+- Linode
+- OpenShift
+- dotCloud
+- Jelastic
+- nitrous.io
+- pythonanywhere
 
 This architecture ensure futur use of the API by other derived apps. 
 

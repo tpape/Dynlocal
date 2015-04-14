@@ -3,7 +3,7 @@
 This is a web platform that aims to gather informations about social, environmental, or commercial initiatives, in order to link local interested parties. 
 
 ## Functionnal key points
-[**See the functionnal specifications**](https://github.com/tpape/Dynlocal/wiki#specifications).
+[**See the functionnal specifications**](https://github.com/tpape/Dynlocal/wiki#specifications).   
 *Sorted by priority*
 
 - Contributor side : 

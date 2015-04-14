@@ -36,7 +36,7 @@ The user sets his position on a map with a clic or a typing his adresse on the m
 > **Technical notes** :  
 >We will use OpenStreetMap as map provider, and we will use a JavaScript library for the frontend integration (For example, [Leaflet](http://leafletjs.com/)). 
 
-#### UC_2 - User map based search
+#### UC_2 - Map based search
 
 The user defines a radius in km or duration to limit the search perimeter. Profiles that are located on this perimeter will be displayed as pin on the same map.
 
@@ -46,7 +46,7 @@ The user defines a radius in km or duration to limit the search perimeter. Profi
 
 #### UC_3 - Magic bar
 
-A search bar that provide lots of service, as setting user location, selecting a specific profile, searching for profiles with key-words, adding somme tags to limit the search result...
+A search bar that provide lots of service, as setting user location, selecting a specific profile, searching for profiles with key-words, adding somme tags to limit the search results...
 
 #### UC_4 - User authentification
 
@@ -60,7 +60,7 @@ We can think about adding the result list under the map.
 
 #### UC_6 - Search criteria
 
-The user will be able to filter his search result with : 
+The user will be able to filter his search results with : 
 - Location and radius
 - Key words
 - Pre-defined Tags

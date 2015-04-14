@@ -1,11 +1,12 @@
 # Dynlocal
-For Local Dynamism. A web plateforme that the aim is to gather socials, environmentals, or commercials local initiatives.
+*Dynlocal* stands for Local Dynamism.
+This is a web platform that aims to gather informations about social, environmental, or commercial initiatives, in order to link local interested parties. 
 
 ## Functionnal key points 
 *Sorted by priority*
 
 - Contributor side : 
-	- Loggin
+	- Login
 	- Create a profile
 	- Complete the profile : 
 		- Location (accurate, on a map)
@@ -28,13 +29,24 @@ For Local Dynamism. A web plateforme that the aim is to gather socials, environm
 
 ## Architecture
 
-On the first time, the application will probably be hosted by a cloud plateform (Heroku ?) to advantage of a browsner-friendly SSL/TLS certificate.
+The backend of the application will be built using Python/Django, to avoid additional developments.
+The frontend will be implemented in AngularJs. Communications between the both ends will be made RESTfull. 
 
-The application will be build by using a Python server. Probably Django to avoid the cost of developping lots of home made services.
-The client side will be based on the AngularJs framework and will be linked to the server by secured REST web services.
+In order to take leverage of SSL/TLS certificate to build a browser friendly website the application will be hosted by a cloud platform.
+This is the list of the cloud platform that supports Django:
+	-Heroku
+	-Amazon EC2
+	-Google App Engine
+	-Linode
+	-OpenShift
+	-dotCloud
+	-Jelastic
+	-nitrous.io
+	-pythonanywhere
 
-This architecture allows futur utilisations of the API by others client apps. 
+This architecture ensure futur use of the API by other derived apps. 
 
 ## Data
 
-The data will remains proprietary on the first time. A next step could be a creation of a French 1901 law type association to manage the hosting.
+The data will remains proprietary on the first time.
+A next step could be a creation of a French 1901 law type association to manage the hosting.

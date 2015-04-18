@@ -1,6 +1,6 @@
 # Python binaries
 __pycache__/
-
+Dynlocal/__pycache__/
 
 # Workspace folder
 .idea/

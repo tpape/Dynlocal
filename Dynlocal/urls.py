@@ -10,9 +10,12 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     # Auth pages
-    url('^', include('django.contrib.auth.urls'))
-
-    # Template URLs
+    url('^auth/', include('django.contrib.auth.urls')),
 
     # RESTFul API URLs
+    url('^rest/', include('Applications.web.urls')),
+
+    # Template URLs
+    url('^', include('Applications.api.urls')),
+
 ]

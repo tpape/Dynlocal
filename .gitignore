@@ -1,4 +1,8 @@
-./__pycache__
-.idea
+# Python binaries
+__pycache__/
+
+
+# Workspace folder
+.idea/
 
 

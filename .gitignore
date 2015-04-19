@@ -1,9 +1,18 @@
-# Python binaries
+# Python binaries direcoties
 __pycache__/
 Dynlocal/__pycache__/
+
+#binaries files
+*.pyc
 
 # Workspace folder
 .idea/
 
 # tmp folder
 tmp/
+
+#static files
+staticfiles
+
+#virtual env
+venv

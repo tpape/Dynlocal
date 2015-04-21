@@ -13,9 +13,9 @@ urlpatterns = [
     url('^auth/', include('django.contrib.auth.urls')),
 
     # RESTFul API URLs
-    url('^rest/', include('Applications.web.urls')),
+    url('^rest/', include('Applications.api.urls')),
 
     # Template URLs
-    url('^', include('Applications.api.urls')),
+    url('^', include('Applications.web.urls')),
 
 ]

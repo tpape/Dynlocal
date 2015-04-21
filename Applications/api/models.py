@@ -29,7 +29,7 @@ class ProfileVisitor(models.Model):
 
 class Tag(models.Model):
     label = models.CharField(db_index=True, max_length=50)
-    tagged = models.ManyToManyField(ProfileVisitor)
+    tagged = models.ManyToManyField(ProfileContributer)
 
 class Bid(models.Model):
     #the user that was given the bid

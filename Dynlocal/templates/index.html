@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="mainModule">
   <head>
     <title></title>
     {% load staticfiles %}
@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <!-- import js files from static -->
     <script src="{% static "js/core.js" %}"></script>
-    <script src="{% static "js/header/header.module.js" %}"></script>
-    <script src="{% static "js/header/header.controller.js" %}"></script>
-    <script src="{% static "js/header/header.directive.js" %}"></script>
+    <!-- import angular modules from static -->
+    <script src="{% static "angular-modules/header/header.module.js" %}"></script>
+    <script src="{% static "angular-modules/header/header.controller.js" %}"></script>
+    <script src="{% static "angular-modules/header/header.directive.js" %}"></script>
   </head>
-  <body ng-app = "MainModule">
+  <body>
     <header-widget></header-widget>
   </body>
 </html>

@@ -1,4 +1,6 @@
-from django.shortcuts import render_to_response, RequestContext
+from django.shortcuts import render
 
 def index(request):
-    return render_to_response('index.html', locals(), RequestContext(request))
+    return render(request, 'index.html')
+def header(request):
+    return render(request, 'header.html')

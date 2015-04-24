@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html  ng-app="mainModule">
+<html>
   <head>
     <title></title>
     {% load staticfiles %}
@@ -8,6 +7,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
   </head>
   <body>
-    {% include "widgets/header.html" %}
+    {% include "widgets/register.html" %}
+    {% if registered %}
+
+    {% else %}
+
+    {% endif %}
+  </div>
   </body>
 </html>

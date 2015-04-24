@@ -1,0 +1,6 @@
+<form ng-controller="RegisterModule" id="register_form" method="post" action="/contrib/"
+                enctype="multipart/form-data">
+            {% csrf_token %}  <!-- Protection against cross site request forgery for POST PUT and DELETE -->
+            {{ user_form.as_p }} <!-- shows everything in the form in a <p> -->
+            <input type="submit" name="submit" value="Register" />
+</form>

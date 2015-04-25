@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
   </head>
   <body>
-    {% include "widgets/register.html" %}
-    {% if registered %}
 
+    {% if not registered and not user.is_authenticated %}
+    {% include "widgets/contrib/register.html" %}
+    {% include "widgets/contrib/login.html" %}
     {% else %}
-
+    {% if user.is_authenticated %}
+    {% include "widgets/contrib/dashboard.html" %}
+    {% endif%}
+    {% if registered %}
+    {% include "widgets/contrib/profile.html" %}
+    {% endif %}
     {% endif %}
   </div>
   </body>

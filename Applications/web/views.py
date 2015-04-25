@@ -2,6 +2,7 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login
 from Applications.web.forms import UserForm, UserProfileForm
+from django.http import HttpResponse
 
 def index(request):
     return render(request, 'index.html')
@@ -45,7 +46,7 @@ def user_login(request):
                 loged_in = True
                 return render_to_response('contrib.html',{'loged_in':loged_in}, context)
             else:
-                return HttpResponse('Votre compte est désactivé.')
+                return HttpResponse('Votre compte est désactivé.') #
         else:
             return HttpResponse('Vos identifiants sont invalides.')
     else:

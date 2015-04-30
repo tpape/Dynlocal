@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login
-from Applications.web.forms import UserForm, UserProfileForm
+from Applications.web.forms import UserForm, UserProfileForm, LoginForm
 from django.http import HttpResponse
 
 def index(request):
@@ -29,7 +29,8 @@ def register(request):
     else:
         user_form = UserForm()
         profile_form = UserProfileForm()
-    return render_to_response('contrib.html',{'user_form':user_form, 'profile_form':profile_form ,'registered':registered}, context)
+        login_form = LoginForm()
+    return render_to_response('contrib.html',{'user_form':user_form, 'profile_form':profile_form, 'login_form':login_form ,'registered':registered}, context)
 def user_login(request):
     context=RequestContext(request)
     loged_in = False

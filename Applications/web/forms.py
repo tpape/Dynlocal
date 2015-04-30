@@ -3,7 +3,9 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
 from Applications.api.models import UserProfile
-
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Submit, Fieldset, ButtonHolder, MultiField
+from django.contrib.auth.forms import AuthenticationForm
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -27,9 +29,50 @@ class UserForm(forms.ModelForm):
         if email and User.objects.filter(email=email).count() > 0:
             raise forms.ValidationError(_("Cette adresse existe déjà"), code='invalid')
         return email
+    def __init__(self, *args, **kwargs):
+        super(UserForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-register-form'
+        self.helper.form_class = 'register-form'
+        self.helper.form_method = 'post'
+        self.helper.form_action = '/contrib/'
+        self.helper.layout = Layout(
+            Fieldset(
+                'Inscrivez-vous',
+                'username',
+                'email',
+                'password',
+                'confirmation',
+                ),
+
+            ButtonHolder(
+                Submit('submit', 'Submit', css_class='button white')
+                )
+        )
 
 class UserProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
         exclude = ('registration_history','user_id','user')
+
+class LoginForm(AuthenticationForm):
+
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-login-form'
+        self.helper.form_class = 'form-horizontal'
+        self.helper.form_method = 'post'
+        self.helper.form_action = '/contrib/login'
+        self.helper.layout = Layout(
+            Fieldset(
+                'Connectez-vous',
+                'username',
+                'password',
+                ),
+
+          ButtonHolder(
+                Submit('submit', 'Submit', css_class='button white')
+            )
+        )

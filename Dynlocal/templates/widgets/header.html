@@ -1,11 +1,19 @@
-<nav ng-controller="HeaderController" class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">DynLocal</a>
-            </div> <!--div navbar-header -->
-
-            <div class="navbar-btn pull-right">
-              <a href="/contrib/" class="btn btn-default ">Agriculteur?</a>
+<header>
+      <div class="container clearfix">
+        <div class="logo">
+          <img src="static/img/logo_dynlocal.png" alt="" />
+        </div>
+        <nav>
+          <a href="/contrib/">Agriculteur?</a>
+        </nav>
+        <div class="band">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <div class="form-search search-only">
+              <i class="search-icon glyphicon glyphicon-search"></i>
+              <input type="text" id="magic" class="form-control search-query" onclick="shrink_click()">
             </div>
-      </div> <!--  div container-fluid -->
-</nav> <!-- nav navbar navbar-default -->
+          </div>
+        </div>
+      </div>
+</header>

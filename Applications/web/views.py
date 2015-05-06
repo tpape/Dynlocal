@@ -1,7 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.contrib.auth import authenticate, login
-from Applications.web.forms import UserForm, UserProfileForm, LoginForm
+from Applications.web.forms import UserForm, UserProfileForm, LoginForm, ContributerProfileForm
 from django.http import HttpResponse
 
 def index(request):
@@ -13,8 +13,9 @@ def register(request):
     if request.method == 'POST':
         user_form = UserForm(data=request.POST)
         profile_form = UserProfileForm(data=request.POST)
-        registered = True
-        print(profile_form)
+        login_form = LoginForm()
+        registered = False
+
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save() #save the user's form data to the database
             user.set_password(user.password) # hash password
@@ -24,16 +25,21 @@ def register(request):
             profile.user = user
             profile.save()
             registered = True
+            user_to_login = authenticate(username=request.POST['username'], password=request.POST['password'])
+            if user_to_login:
+                if user_to_login.is_active:
+                    login(request,user_to_login)
+                    render_to_response('/widgets/contrib/dashboard.html',{'registered':registered}, context)
         else:
             print(user_form.errors, profile_form.errors)
     else:
         user_form = UserForm()
         profile_form = UserProfileForm()
         login_form = LoginForm()
-    return render_to_response('contrib.html',{'user_form':user_form, 'profile_form':profile_form, 'login_form':login_form ,'registered':registered}, context)
+    return render_to_response('contrib.html',{'user_form':user_form, 'profile_form':profile_form, 'login_form':login_form,'registered':registered}, context)
+
 def user_login(request):
     context=RequestContext(request)
-    loged_in = False
 
     if request.method== 'POST':
         username = request.POST['username']
@@ -44,11 +50,10 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                loged_in = True
                 return render_to_response('contrib.html',{'loged_in':loged_in}, context)
             else:
                 return HttpResponse('Votre compte est désactivé.') #
         else:
             return HttpResponse('Vos identifiants sont invalides.')
     else:
-        return render_to_response('contrib.html',{'loged_in':loged_in}, context)
+        return render_to_response('contrib.html', context)

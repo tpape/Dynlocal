@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
-from Applications.api.models import UserProfile
+from Applications.api.models import UserProfile, ProfileContributer
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Fieldset, ButtonHolder, MultiField
 from django.contrib.auth.forms import AuthenticationForm
@@ -75,4 +75,31 @@ class LoginForm(AuthenticationForm):
           ButtonHolder(
                 Submit('submit', 'Submit', css_class='button white')
             )
+        )
+class ContributerProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = ProfileContributer
+        exclude =('latitude','longitude','visible')
+
+    def __init__(self, *args, **kwargs):
+        super(ContributerProfileForm, self).__init__(*args,**kwargs)
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-profile-form'
+        self.helper.form_class = 'from-horizontal'
+        self.helper.form_method = 'post'
+        self.helper.form_action = '/contrib/profile/add'
+        self.helper.layout = Layout(
+            Fieldset(
+                'Votre profil',
+                'label',
+                'img',
+                'postal_address',
+                'description',
+                'availibility',
+                'contact',
+            ),
+              ButtonHolder(
+                    Submit('submit', 'Submit', css_class='button white')
+                )
         )

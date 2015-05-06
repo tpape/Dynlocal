@@ -3,12 +3,14 @@
     <title></title>
     {% load staticfiles %}
     {% load crispy_forms_tags %}
+    {% load tags %}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="{% static "css/index.css" %}">
   </head>
   <body>
+
     {% if not registered and not user.is_authenticated %}
       <div class="col-md-4">
         <!-- informations about the organization, the way it works, donations -->
@@ -24,11 +26,10 @@
           </div>
       </div>
     {% else %}
-
       {% if user.is_authenticated %}
         {% include "widgets/contrib/dashboard.html" %}
       {% endif%}
-      
+
       {% if registered %}
         {% include "widgets/contrib/profile.html" %}
       {% endif %}
